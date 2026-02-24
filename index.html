@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio — Edlin</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Syne', 'sans-serif'],
+            body: ['DM Sans', 'sans-serif'],
+          },
+          colors: {
+            cream: '#F5F0E8',
+            charcoal: '#1A1A1A',
+            accent: '#FF4D1C',
+            muted: '#8A8A8A',
+            warm: '#E8E0D0',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body class="bg-cream text-charcoal font-body overflow-x-hidden">
+
+  <!-- ANIMATED CANVAS BACKGROUND -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- CURSOR BLOB -->
+  <div id="cursor-blob"></div>
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-5 flex items-center justify-between nav-glass">
+    <a href="#" class="font-display font-800 text-xl tracking-tight text-charcoal nav-logo">
+      Edlin<span class="text-accent">.</span>
+    </a>
+    <div class="hidden md:flex items-center gap-10">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <!-- Mobile hamburger -->
+    <button id="hamburger" class="md:hidden flex flex-col gap-1.5 z-50">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero-section min-h-screen flex flex-col justify-end pb-20 px-6 md:px-12 pt-32 relative overflow-hidden">
+
+    <!-- Floating image placeholder / decorative photo frame -->
+    <div class="photo-frame">
+        <img src="images/profile.JPG" alt="Edlin" class="profile-photo">
+    </div>
+
+    <!-- Floating blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <div class="max-w-7xl mx-auto w-full relative z-10">
+      <p class="hero-label reveal" style="--delay:0.1s">
+        Full Stack Developer & AI Enthusiast
+      </p>
+
+      <h1 class="hero-name reveal" style="--delay:0.2s">
+        Edlin
+      </h1>
+
+      <p class="text-charcoal/50 text-base leading-relaxed mt-6 max-w-md reveal" style="--delay:0.4s">
+        Computer Science student passionate about building responsive web applications and AI-powered solutions.
+      </p>
+
+      <div class="flex gap-4 mt-10 reveal" style="--delay:0.55s">
+        <a href="#projects" class="btn-primary">See my work</a>
+        <a href="#contact" class="btn-outline">Get in touch</a>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator reveal" style="--delay:0.7s">
+        <div class="scroll-line"></div>
+        <span>scroll</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-28 px-6 md:px-12 relative">
+    <div class="max-w-7xl mx-auto">
+      <div class="about-grid">
+        <div class="about-left">
+          <span class="section-tag reveal">Who I am</span>
+          <h2 class="font-display font-extrabold text-4xl md:text-5xl mb-6 reveal" style="--delay:0.1s">
+            About Me
+          </h2>
+          <p class="text-charcoal/60 leading-relaxed mb-4 reveal" style="--delay:0.2s">
+            I'm Edlin, a Computer Science student focused on frontend and AI development.
+            I build responsive web applications using HTML, CSS, Tailwind CSS, and JavaScript,
+            and have also developed deep learning projects using Python.
+          </p>
+          <p class="text-charcoal/60 leading-relaxed reveal" style="--delay:0.3s">
+            Currently seeking internship opportunities to apply my skills and grow as a full stack developer.
+          </p>
+        </div>
+        <div class="about-right reveal" style="--delay:0.2s">
+          <div class="stats-card">
+            <div class="stat-item">
+              <span class="stat-num">2+</span>
+              <span class="stat-label">Projects Built</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-num">6</span>
+              <span class="stat-label">Core Skills</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-num">∞</span>
+              <span class="stat-label">Drive to Learn</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="py-28 px-6 md:px-12 bg-charcoal text-cream relative overflow-hidden">
+    <div class="skills-bg-text">SKILLS</div>
+    <div class="max-w-7xl mx-auto relative z-10">
+      <span class="section-tag-light reveal">What I know</span>
+      <h2 class="font-display font-extrabold text-4xl md:text-6xl mb-14 reveal" style="--delay:0.1s">
+        My Skills
+      </h2>
+
+      <div class="skills-grid">
+        <div class="skill-card reveal" style="--delay:0.1s" data-skill="HTML5">
+          <div class="skill-icon">⟨/⟩</div>
+          <h3>HTML5</h3>
+          <div class="skill-bar"><div class="skill-fill" style="--fill: 90%"></div></div>
+        </div>
+        <div class="skill-card reveal" style="--delay:0.15s" data-skill="CSS3">
+          <div class="skill-icon">#</div>
+          <h3>CSS3</h3>
+          <div class="skill-bar"><div class="skill-fill" style="--fill: 85%"></div></div>
+        </div>
+        <div class="skill-card reveal" style="--delay:0.2s" data-skill="Tailwind">
+          <div class="skill-icon">✦</div>
+          <h3>Tailwind CSS</h3>
+          <div class="skill-bar"><div class="skill-fill" style="--fill: 80%"></div></div>
+        </div>
+        <div class="skill-card reveal" style="--delay:0.25s" data-skill="JS">
+          <div class="skill-icon">JS</div>
+          <h3>JavaScript</h3>
+          <div class="skill-bar"><div class="skill-fill" style="--fill: 75%"></div></div>
+        </div>
+        <div class="skill-card reveal" style="--delay:0.3s" data-skill="Python">
+          <div class="skill-icon">Py</div>
+          <h3>Python</h3>
+          <div class="skill-bar"><div class="skill-fill" style="--fill: 70%"></div></div>
+        </div>
+        <div class="skill-card reveal" style="--delay:0.35s" data-skill="Git">
+          <div class="skill-icon">⎇</div>
+          <h3>Git & GitHub</h3>
+          <div class="skill-bar"><div class="skill-fill" style="--fill: 80%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-28 px-6 md:px-12 relative">
+    <div class="max-w-7xl mx-auto">
+      <span class="section-tag reveal">What I've built</span>
+      <h2 class="font-display font-extrabold text-4xl md:text-6xl mb-16 reveal" style="--delay:0.1s">
+        Projects
+      </h2>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card reveal" style="--delay:0.1s">
+          <div class="project-number">01</div>
+          <div class="project-tags">
+            <span>Python</span><span>CNN</span><span>Deep Learning</span>
+          </div>
+          <h3 class="font-display font-bold text-2xl mt-4 mb-3">
+            Forgery Detection System
+          </h3>
+          <p class="text-charcoal/60 leading-relaxed">
+            Deep learning project built using Python and CNN to detect forged images with high accuracy.
+          </p>
+          <div class="project-arrow">→</div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card reveal" style="--delay:0.2s">
+          <div class="project-number">02</div>
+          <div class="project-tags">
+            <span>HTML</span><span>Tailwind</span><span>JavaScript</span>
+          </div>
+          <h3 class="font-display font-bold text-2xl mt-4 mb-3">
+            Responsive Portfolio Website
+          </h3>
+          <p class="text-charcoal/60 leading-relaxed">
+            Personal portfolio built using HTML, CSS, Tailwind CSS, and JavaScript with responsive design.
+          </p>
+          <div class="project-arrow">→</div>
+        </div>
+
+        <!-- Add More Card -->
+        <div class="project-card project-card--ghost reveal" style="--delay:0.3s">
+          <div class="project-plus">+</div>
+          <p class="text-charcoal/30 font-display font-bold text-xl">More coming soon...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-28 px-6 md:px-12 bg-charcoal text-cream relative overflow-hidden">
+    <div class="contact-orbit"></div>
+    <div class="max-w-7xl mx-auto relative z-10">
+      <span class="section-tag-light reveal">Let's talk</span>
+      <h2 class="font-display font-extrabold text-4xl md:text-6xl mb-6 reveal" style="--delay:0.1s">
+        Contact Me
+      </h2>
+      <p class="text-cream/40 mb-14 max-w-md reveal" style="--delay:0.2s">
+        Open to internship opportunities, collaborations, and anything exciting. Let's build something great.
+      </p>
+
+      <div class="contact-links">
+        <a href="mailto:edlintribhoshaa@gmail.com" class="contact-item reveal" style="--delay:0.25s">
+          <span class="contact-icon">✉</span>
+          <span>edlintribhoshaa@gmail.com</span>
+          <span class="contact-arrow">↗</span>
+        </a>
+        <a href="https://github.com/yourusername" target="_blank" class="contact-item reveal" style="--delay:0.35s">
+          <span class="contact-icon">⎇</span>
+          <span>github.com/yourusername</span>
+          <span class="contact-arrow">↗</span>
+        </a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-item reveal" style="--delay:0.45s">
+          <span class="contact-icon">in</span>
+          <span>linkedin.com/in/yourprofile</span>
+          <span class="contact-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-charcoal border-t border-cream/5 px-6 md:px-12 py-8 text-cream/20 flex justify-between items-center">
+    <span class="font-display font-bold">Edlin<span class="text-accent">.</span></span>
+    <span>© 2026 — All rights reserved</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
